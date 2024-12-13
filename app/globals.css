@@ -2,20 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.box-border {
+  border-right: 0.625rem solid #ed1c24;
+  color: #ed1c24;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 640px) {
+  .toggleSidebarBtn {
+    position: fixed;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  .headerDiv {
+    flex-direction: column;
+  }
+
+  .headerOne {
+    /* display: none; */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headerTwo {
+    display: none;
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
 }
