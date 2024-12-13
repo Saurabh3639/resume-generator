@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import GeneralPhase from "./Phases/GeneralPhase";
+import AboutJobPhase from "./Phases/AboutJobPhase";
+import ChooseTemplatePhase from "./Phases/ChooseTemplatePhase";
 
 const CategoriesData = [
   {
@@ -46,9 +48,9 @@ export default function DocBuilder({ title, category }) {
       case "Co-Curricular":
         return <p>Mention your co-curricular activities here.</p>;
       case "About Job":
-        return <p>Company Details.</p>;
+        return <AboutJobPhase />;
       case "Choose Template":
-        return <p>Select a template for your resume.</p>;
+        return <ChooseTemplatePhase />;
       default:
         return <p>Select a phase to start.</p>;
     }
