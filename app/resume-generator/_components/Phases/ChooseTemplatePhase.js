@@ -1,15 +1,13 @@
 import React from "react";
+import TitleComponent from "../TitleComponent";
 
 export default function ChooseTemplatePhase() {
   return (
     <div>
-      <h3 className="text-3xl font-bold text-[#262626] mb-4">
-        Cover Letter Templates
-      </h3>
-
-      <p className="text-sm font-normal text-[#414141] mb-4">
-        Select a cover later template that you feel will best.
-      </p>
+      <TitleComponent
+        heading={"Cover Letter Templates"}
+        subheading={"Select a cover later template that you feel will best."}
+      />
 
       <div>
         <div className="grid grid-cols-4 gap-3">

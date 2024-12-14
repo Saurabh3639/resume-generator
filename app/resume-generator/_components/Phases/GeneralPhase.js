@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { LuImageUp } from "react-icons/lu";
+import TitleComponent from "../TitleComponent";
 
 export default function GeneralPhase({ category }) {
   const [formData, setFormData] = useState({
@@ -26,21 +27,17 @@ export default function GeneralPhase({ category }) {
 
   return (
     <div>
-      <h3 className="text-3xl font-bold text-[#262626] mb-4">
-        {category == "create-a-resume"
-          ? "Tell us Something about you."
-          : category == "create-a-cover-letter"
-          ? "Tell us Something about your application."
-          : null}
-      </h3>
-
-      <p className="text-sm font-normal text-[#414141] mb-4">
-        {category == "create-a-resume"
-          ? "* indicates a required field"
-          : category == "create-a-cover-letter"
-          ? "* Please provide sender information."
-          : null}
-      </p>
+      {category == "create-a-resume" ? (
+        <TitleComponent
+          heading={"Tell us Something about you."}
+          subheading={"* indicates a required field"}
+        />
+      ) : category == "create-a-cover-letter" ? (
+        <TitleComponent
+          heading={"Tell us Something about your application."}
+          subheading={"* Please provide sender information."}
+        />
+      ) : null}
 
       {category == "create-a-resume" ? (
         <div className="h-[160px] w-[160px] p-2 cursor-pointer flex flex-col items-center justify-center gap-2 text-[#414141] border border-black rounded-lg mb-4">

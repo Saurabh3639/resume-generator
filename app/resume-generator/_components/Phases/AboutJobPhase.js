@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import TitleComponent from "../TitleComponent";
 
 export default function AboutJobPhase() {
   const [formData, setFormData] = useState({
@@ -23,13 +24,10 @@ export default function AboutJobPhase() {
   console.log("formData", formData);
   return (
     <div>
-      <h3 className="text-3xl font-bold text-[#262626] mb-4">
-        Company Details.
-      </h3>
-
-      <p className="text-sm font-normal text-[#414141] mb-4">
-        * Please provide company information.
-      </p>
+      <TitleComponent
+        heading={"Company Details"}
+        subheading={"* Please provide company information."}
+      />
 
       <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4 mt-2">
         <div>
