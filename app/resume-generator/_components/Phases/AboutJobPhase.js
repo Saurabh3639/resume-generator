@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import TitleComponent from "../TitleComponent";
+import { TextElement } from "../FormElements";
 
 export default function AboutJobPhase() {
   const [formData, setFormData] = useState({
@@ -30,58 +31,35 @@ export default function AboutJobPhase() {
       />
 
       <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4 mt-2">
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Enter Your Job Title *
-          </label>
-          <input
-            type="text"
-            name="jobTitle"
-            id="jobTitle"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.jobTitle}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Enter Your Current Experience *
-          </label>
-          <input
-            type="text"
-            name="currentExp"
-            id="currentExp"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.currentExp}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Company Name
-          </label>
-          <input
-            type="text"
-            name="companyName"
-            id="companyName"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.companyName}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Location
-          </label>
-          <input
-            type="text"
-            name="companyLocation"
-            id="companyLocation"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.companyLocation}
-            onChange={handleChange}
-          />
-        </div>
+        <TextElement
+          labelName={"Enter Your Job Title *"}
+          inputName={"jobTitle"}
+          inputId={"jobTitle"}
+          inputValue={formData.jobTitle}
+          onChange={handleChange}
+        />
+        <TextElement
+          labelName={"Enter Your Current Experience *"}
+          inputName={"currentExp"}
+          inputId={"currentExp"}
+          inputValue={formData.currentExp}
+          onChange={handleChange}
+        />
+        <TextElement
+          labelName={"Company Name"}
+          inputName={"companyName"}
+          inputId={"companyName"}
+          inputValue={formData.companyName}
+          onChange={handleChange}
+        />
+        <TextElement
+          labelName={"Location"}
+          inputName={"companyLocation"}
+          inputId={"companyLocation"}
+          inputValue={formData.companyLocation}
+          onChange={handleChange}
+        />
+
         <div className="col-span-2">
           <label className="block text-[#252525] text-base font-medium mb-1">
             Upload Job Description Here
@@ -101,7 +79,9 @@ export default function AboutJobPhase() {
             Generate
           </button>
         </div>
+
         <hr className="my-4 border border-[#C7C7C7] col-span-2" />
+        
         <div className="col-span-2">
           <label className="block text-[#252525] text-base font-medium mb-1 col-span-2">
             Cover Letter Sample

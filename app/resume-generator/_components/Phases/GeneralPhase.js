@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { LuImageUp } from "react-icons/lu";
 import TitleComponent from "../TitleComponent";
+import { DateElement, TextElement } from "../FormElements";
 
 export default function GeneralPhase({ category }) {
   const [formData, setFormData] = useState({
@@ -47,98 +48,57 @@ export default function GeneralPhase({ category }) {
       ) : null}
 
       <div className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4 mt-2">
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Full Name *
-          </label>
-          <input
-            type="text"
-            name="fullName"
-            id="fullName"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.fullName}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Phone *
-          </label>
-          <input
-            type="text"
-            name="contact"
-            id="contact"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.contact}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Email *
-          </label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Current City *
-          </label>
-          <input
-            type="text"
-            name="city"
-            id="city"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.city}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Country *
-          </label>
-          <input
-            type="text"
-            name="country"
-            id="country"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.country}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label className="block text-[#252525] text-base font-medium mb-1">
-            Pincode *
-          </label>
-          <input
-            type="text"
-            name="pincode"
-            id="pincode"
-            className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-            value={formData.pincode}
-            onChange={handleChange}
-          />
-        </div>
+        <TextElement
+          labelName={"Full Name *"}
+          inputName={"fullName"}
+          inputId={"fullName"}
+          inputValue={formData.fullName}
+          onChange={handleChange}
+        />
+        <TextElement
+          labelName={"Phone *"}
+          inputName={"contact"}
+          inputId={"contact"}
+          inputValue={formData.contact}
+          onChange={handleChange}
+        />
+        <TextElement
+          labelName={"Email *"}
+          inputName={"email"}
+          inputId={"email"}
+          inputValue={formData.email}
+          onChange={handleChange}
+        />
+        <TextElement
+          labelName={"Current City *"}
+          inputName={"city"}
+          inputId={"city"}
+          inputValue={formData.city}
+          onChange={handleChange}
+        />
+        <TextElement
+          labelName={"Country *"}
+          inputName={"country"}
+          inputId={"country"}
+          inputValue={formData.country}
+          onChange={handleChange}
+        />
+        <TextElement
+          labelName={"Pincode *"}
+          inputName={"pincode"}
+          inputId={"pincode"}
+          inputValue={formData.pincode}
+          onChange={handleChange}
+        />
+
         {category == "create-a-cover-letter" ? (
-          <div>
-            <label className="block text-[#252525] text-base font-medium mb-1">
-              Date *
-            </label>
-            <input
-              type="date"
-              name="applicationDate"
-              id="applicationDate"
-              className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-              value={formData.applicationDate}
-              onChange={handleChange}
-            />
-          </div>
+          <DateElement
+            labelName={"Date *"}
+            inputName={"applicationDate"}
+            inputId={"applicationDate"}
+            inputValue={formData.applicationDate}
+            onChange={handleChange}
+          />
         ) : null}
       </div>
 
