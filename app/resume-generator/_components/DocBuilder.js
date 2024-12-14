@@ -4,6 +4,12 @@ import React, { useState } from "react";
 import GeneralPhase from "./Phases/GeneralPhase";
 import AboutJobPhase from "./Phases/AboutJobPhase";
 import ChooseTemplatePhase from "./Phases/ChooseTemplatePhase";
+import EducationPhase from "./Phases/EducationPhase";
+import ExperiencePhase from "./Phases/ExperiencePhase";
+import SkillsPhase from "./Phases/SkillsPhase";
+import ProjectsPhase from "./Phases/ProjectsPhase";
+import CocurricularPhase from "./Phases/CocurricularPhase";
+import SocialLinksPhase from "./Phases/SocialLinksPhase";
 
 const CategoriesData = [
   {
@@ -36,17 +42,17 @@ export default function DocBuilder({ title, category }) {
       case "General":
         return <GeneralPhase category={category} />;
       case "Social Links":
-        return <p>Add your social media profiles and links here.</p>;
+        return <SocialLinksPhase />;
       case "Education":
-        return <p>Provide your education background here.</p>;
+        return <EducationPhase />;
       case "Experience":
-        return <p>List your professional experience here.</p>;
+        return <ExperiencePhase />;
       case "Projects":
-        return <p>Describe your key projects here.</p>;
+        return <ProjectsPhase />;
       case "Skills":
-        return <p>Add your skills here.</p>;
+        return <SkillsPhase />;
       case "Co-Curricular":
-        return <p>Mention your co-curricular activities here.</p>;
+        return <CocurricularPhase />;
       case "About Job":
         return <AboutJobPhase />;
       case "Choose Template":
