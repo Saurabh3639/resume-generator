@@ -48,7 +48,7 @@ export default function EducationPhase() {
     setEducationsData(updatedEducations);
   };
 
-  console.log("educationsData:", educationsData);
+  console.log("educationsData :", JSON.stringify(educationsData));
 
   return (
     <div>
@@ -75,7 +75,7 @@ export default function EducationPhase() {
               name={"instituteName"}
               id={`instituteName-${index}`}
               className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-              value={educationsData.instituteName}
+              value={education.instituteName}
               onChange={(e) => handleChange(index, e)}
             />
           </div>
@@ -88,7 +88,7 @@ export default function EducationPhase() {
               name={"instituteLocation"}
               id={`instituteLocation-${index}`}
               className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-              value={educationsData.instituteLocation}
+              value={education.instituteLocation}
               onChange={(e) => handleChange(index, e)}
             />
           </div>
@@ -101,7 +101,7 @@ export default function EducationPhase() {
               name={"instituteCourse"}
               id={`instituteCourse-${index}`}
               className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-              value={educationsData.instituteCourse}
+              value={education.instituteCourse}
               onChange={(e) => handleChange(index, e)}
             />
           </div>
@@ -114,7 +114,7 @@ export default function EducationPhase() {
               name="instituteDuration"
               id={`instituteDuration-${index}`}
               className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
-              value={educationsData.instituteDuration}
+              value={education.instituteDuration}
               onChange={(e) => handleChange(index, e)}
             />
           </div>
@@ -127,7 +127,7 @@ export default function EducationPhase() {
               name="isPursuing"
               id={`isPursuing-${index}`}
               className="w-5 h-5 bg-green-600 border border-[#808080] focus:outline-none"
-              value={educationsData.isPursuing}
+              checked={education.isPursuing} // Used `checked` for checkboxes
               onChange={(e) => handleChange(index, e)}
             />
           </div>
@@ -147,12 +147,22 @@ export default function EducationPhase() {
         </div>
       ))}
 
-      <div className="text-base font-medium text-[#414141]">
+      <div className="text-base font-medium text-[#414141] mb-4">
         <CiSquarePlus
           onClick={addEducationSection}
           className="inline text-primary text-2xl cursor-pointer"
         />{" "}
         Add any additional coursework you're proud to showcase
+      </div>
+
+      <div className="py-4 flex items-center justify-end gap-6">
+        <button className="underline text-sm font-normal">Back</button>
+        <button className="px-5 py-1 text-primary text-base font-medium border border-primary rounded-lg">
+          Preview
+        </button>
+        <button className="px-5 py-1 bg-primary text-base font-medium text-white rounded-lg">
+          Next
+        </button>
       </div>
     </div>
   );
