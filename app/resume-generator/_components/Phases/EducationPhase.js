@@ -119,7 +119,7 @@ export default function EducationPhase() {
             />
           </div>
           <div className="flex items-center gap-3">
-            <label className="text-[rgb(37,37,37)] text-base font-medium">
+            <label className="text-[#252525] text-base font-medium">
               Currently Pursuing
             </label>
             <input
