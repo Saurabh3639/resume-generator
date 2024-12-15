@@ -73,7 +73,7 @@ export default function ProjectsPhase() {
         }
       />
 
-      {/* Add Experience section */}
+      {/* Add Projects section */}
       {projectsData?.map((project, index) => (
         <div key={index} className="grid grid-cols-2 gap-x-4 gap-y-2 mb-4 mt-2">
           <div className="col-span-2 text-base font-medium text-[#252525]">
@@ -201,6 +201,16 @@ export default function ProjectsPhase() {
           className="inline text-primary text-2xl cursor-pointer"
         />{" "}
         Add More Project
+      </div>
+
+      <div className="py-4 flex items-center justify-end gap-6">
+        <button className="underline text-sm font-normal">Back</button>
+        <button className="px-5 py-1 text-primary text-base font-medium border border-primary rounded-lg">
+          Preview
+        </button>
+        <button className="px-5 py-1 bg-primary text-base font-medium text-white rounded-lg">
+          Next
+        </button>
       </div>
     </div>
   );
