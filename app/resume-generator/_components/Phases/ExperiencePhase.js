@@ -23,7 +23,6 @@ export default function ExperiencePhase() {
   const handleChange = (index, e) => {
     const { name, value, type, checked } = e.target;
     const updatedExperiences = [...experiencesData];
-    // updatedExperiences[index][name] = type == "checkbox" ? checked : value;
 
     if (name === "isCurrentlyWorking") {
       updatedExperiences[index].isCurrentlyWorking = checked;
