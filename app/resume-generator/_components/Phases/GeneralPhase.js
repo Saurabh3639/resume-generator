@@ -7,6 +7,7 @@ import { DateElement, TextElement } from "../FormElements";
 
 export default function GeneralPhase({ category }) {
   const [formData, setFormData] = useState({
+    photoUrl: "",
     fullName: "",
     contact: "",
     email: "",
