@@ -34,7 +34,8 @@ const CategoriesData = [
 ];
 
 export default function DocBuilder({ title, category }) {
-  const [selectedPhase, setSelectedPhase] = useState("General");
+  const [selectedPhase, setSelectedPhase] = useState("Choose Template");
+  // const [selectedPhase, setSelectedPhase] = useState("General");
   const [selectedPhaseIndex, setSelectedPhaseIndex] = useState(0);
 
   const renderPhaseComponent = (category) => {
