@@ -6,8 +6,9 @@ import TemplatePreviewModal from "../TemplatePreviewModal";
 import ResumeTemplate1 from "../Template/ResumeTemplate1";
 import ResumeTemplate2 from "../Template/ResumeTemplate2";
 import ResumeTemplate3 from "../Template/ResumeTemplate3";
+import Image from "next/image";
 
-export default function ChooseTemplatePhase() {
+export default function ChooseTemplatePhase({ category }) {
   const templates = [
     { id: 1, name: "Template 1", component: ResumeTemplate1 },
     { id: 2, name: "Template 2", component: ResumeTemplate2 },
@@ -26,27 +27,44 @@ export default function ChooseTemplatePhase() {
 
   return (
     <div>
-      <TitleComponent
-        heading={"Cover Letter Templates"}
-        subheading={"Select a cover later template that you feel will best."}
-      />
+      {category == "create-a-resume" ? (
+        <TitleComponent
+          heading={"Choose Resume Template"}
+          subheading={
+            "Select a resume template that you feel will best showcase your skills and qualifications."
+          }
+        />
+      ) : category == "create-a-cover-letter" ? (
+        <TitleComponent
+          heading={"Cover Letter Templates"}
+          subheading={"Select a cover later template that you feel will best."}
+        />
+      ) : null}
 
       <div>
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 gap-2 justify-items-center">
           {templates.map((template, index) => {
             return (
               <div
                 key={index}
-                className="border border-[#FFA6AA] rounded-lg p-2"
+                className="border border-[#FFA6AA] rounded-lg p-2 w-fit"
               >
-                <div>Image</div>
+                <Image
+                  src="/images/template_image.svg"
+                  className=""
+                  width="200"
+                  height="160"
+                  alt=""
+                />
                 <h4 className="text-base font-medium">{template.name}</h4>
                 <p className="text-xs font-normal text-[#757575]">
                   Chosen By 200 Users
                 </p>
-                <button onClick={() => handleTemplateClick(template)}>
-                  Select
-                </button>
+                <div className="w-full text-center mt-2">
+                  <button onClick={() => handleTemplateClick(template)} className="border border-[#FFA6AA] rounded-lg px-3 py-1">
+                    Select
+                  </button>
+                </div>
               </div>
             );
           })}

@@ -57,7 +57,7 @@ export default function DocBuilder({ title, category }) {
       case "About Job":
         return <AboutJobPhase />;
       case "Choose Template":
-        return <ChooseTemplatePhase />;
+        return <ChooseTemplatePhase category={category} />;
       default:
         return <p>Select a phase to start.</p>;
     }
