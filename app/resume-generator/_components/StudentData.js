@@ -96,11 +96,19 @@ export const resumeData = {
     "MySQL",
     "PostgreSQL",
   ],
+  // Certifications Phase data
+  certifications: [
+    "Full Stack React",
+    "Full Stack Angular",
+    "Diploma in Web Designing",
+    "Infosys CodersZen JavaScript",
+  ],
   // Cocurricular Phase data
   activities:
     "Arranged and Participated in Technical Events at ATSS's IICMR, Nigdi, Pune. Participated in Inter college activities (Regional Level Project Competition). Participated in office events and activities at Felix IT Systems.",
   // Summary Phase data
-  summary: "An enthusiastic creative person seeking a position where I can constantly learn and grow with the organization by taking on responsibility and delivering through hard work with team play.",
+  summary:
+    "An enthusiastic creative person seeking a position where I can constantly learn and grow with the organization by taking on responsibility and delivering through hard work with team play.",
 };
 
 export const cvData = {

@@ -11,6 +11,7 @@ import ProjectsPhase from "./Phases/ProjectsPhase";
 import CocurricularPhase from "./Phases/CocurricularPhase";
 import SocialLinksPhase from "./Phases/SocialLinksPhase";
 import SummaryPhase from "./Phases/SummaryPhase";
+import CertificationsPhase from "./Phases/CertificationsPhase";
 
 const CategoriesData = [
   {
@@ -23,6 +24,7 @@ const CategoriesData = [
       "Experience",
       "Projects",
       "Skills",
+      "Certifications",
       "Co-Curricular",
       "Summary",
       "Choose Template",
@@ -36,7 +38,7 @@ const CategoriesData = [
 ];
 
 export default function DocBuilder({ title, category }) {
-  const [selectedPhase, setSelectedPhase] = useState("Choose Template");
+  const [selectedPhase, setSelectedPhase] = useState("Certifications");
   // const [selectedPhase, setSelectedPhase] = useState("General");
   const [selectedPhaseIndex, setSelectedPhaseIndex] = useState(0);
 
@@ -54,10 +56,12 @@ export default function DocBuilder({ title, category }) {
         return <ProjectsPhase />;
       case "Skills":
         return <SkillsPhase />;
+      case "Certifications":
+        return <CertificationsPhase />;
       case "Co-Curricular":
         return <CocurricularPhase />;
       case "Summary":
-          return <SummaryPhase />;
+        return <SummaryPhase />;
       case "About Job":
         return <AboutJobPhase />;
       case "Choose Template":
