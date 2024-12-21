@@ -10,6 +10,7 @@ import SkillsPhase from "./Phases/SkillsPhase";
 import ProjectsPhase from "./Phases/ProjectsPhase";
 import CocurricularPhase from "./Phases/CocurricularPhase";
 import SocialLinksPhase from "./Phases/SocialLinksPhase";
+import SummaryPhase from "./Phases/SummaryPhase";
 
 const CategoriesData = [
   {
@@ -23,6 +24,7 @@ const CategoriesData = [
       "Projects",
       "Skills",
       "Co-Curricular",
+      "Summary",
       "Choose Template",
     ],
   },
@@ -54,6 +56,8 @@ export default function DocBuilder({ title, category }) {
         return <SkillsPhase />;
       case "Co-Curricular":
         return <CocurricularPhase />;
+      case "Summary":
+          return <SummaryPhase />;
       case "About Job":
         return <AboutJobPhase />;
       case "Choose Template":
