@@ -1,8 +1,8 @@
 import React from "react";
 
-export default function ResumeTemplate1({ resumeData }) {
+export default function ClassicResumeTemplate({ resumeData }) {
   return (
-    <div className="max-w-[595px] max-h-[842px] mx-auto p-6 bg-white shadow-md rounded-md">
+    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-md">
       {/* Header Section */}
       <div className="flex items-center justify-between border-b pb-4 mb-4">
         <div>
@@ -64,6 +64,12 @@ export default function ResumeTemplate1({ resumeData }) {
             </li>
           )}
         </ul>
+      </div>
+
+      {/* Summary Section */}
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold text-gray-800">Profile Summary</h2>
+        <p className="text-gray-600 text-sm">{resumeData.summary}</p>
       </div>
 
       {/* Education Section */}
@@ -153,6 +159,22 @@ export default function ResumeTemplate1({ resumeData }) {
             </span>
           ))}
         </div>
+      </div>
+
+      {/* Certifications Section */}
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold text-gray-800">Certifications</h2>
+        <ul className="list-disc pl-5 text-gray-600 text-sm">
+          {resumeData.certifications.map((cert, index) => (
+            <li key={index}>{cert}</li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Languages Known Section */}
+      <div className="mb-4">
+        <h2 className="text-lg font-semibold text-gray-800">Languages Known</h2>
+        <p className="text-gray-600 text-sm">{resumeData.languagesKnown}</p>
       </div>
 
       {/* Co-Curricular Activities Section */}

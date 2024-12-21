@@ -1,18 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import TitleComponent from "../TitleComponent";
 import TemplatePreviewModal from "../TemplatePreviewModal";
-import ResumeTemplate1 from "../Template/ResumeTemplate1";
-import ResumeTemplate2 from "../Template/ResumeTemplate2";
-import ResumeTemplate3 from "../Template/ResumeTemplate3";
-import Image from "next/image";
+import ClassicResumeTemplate from "../Template/ClassicResumeTemplate";
+import CreativeResumeTemplate from "../Template/CreativeResumeTemplate";
+import TimelineResumeTemplate from "../Template/TimelineResumeTemplate";
 
 export default function ChooseTemplatePhase({ category }) {
   const templates = [
-    { id: 1, name: "Template 1", component: ResumeTemplate1 },
-    { id: 2, name: "Template 2", component: ResumeTemplate2 },
-    { id: 3, name: "Template 3", component: ResumeTemplate3 },
+    { id: 1, name: "Classic Resume", component: ClassicResumeTemplate },
+    { id: 2, name: "Creative Resume", component: CreativeResumeTemplate },
+    { id: 3, name: "Timeline Resume", component: TimelineResumeTemplate },
   ];
 
   const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -61,7 +61,10 @@ export default function ChooseTemplatePhase({ category }) {
                   Chosen By 200 Users
                 </p>
                 <div className="w-full text-center mt-2">
-                  <button onClick={() => handleTemplateClick(template)} className="border border-[#FFA6AA] rounded-lg px-3 py-1">
+                  <button
+                    onClick={() => handleTemplateClick(template)}
+                    className="border border-[#FFA6AA] rounded-lg px-3 py-1"
+                  >
                     Select
                   </button>
                 </div>
