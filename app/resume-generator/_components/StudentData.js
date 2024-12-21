@@ -7,6 +7,7 @@ export const resumeData = {
   city: "Kothrud, Pune",
   country: "India",
   pincode: "411029",
+  languagesKnown: "English, Hindi, Marathi",
   applicationDate: "",
   // Social Links Phase data
   linkedInUrl: "https://www.linkedin.com/in/saurabhphawade12/",
@@ -98,6 +99,8 @@ export const resumeData = {
   // Cocurricular Phase data
   activities:
     "Arranged and Participated in Technical Events at ATSS's IICMR, Nigdi, Pune. Participated in Inter college activities (Regional Level Project Competition). Participated in office events and activities at Felix IT Systems.",
+  // Summary Phase data
+  summary: "An enthusiastic creative person seeking a position where I can constantly learn and grow with the organization by taking on responsibility and delivering through hard work with team play.",
 };
 
 export const cvData = {

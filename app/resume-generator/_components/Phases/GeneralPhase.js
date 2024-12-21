@@ -14,6 +14,7 @@ export default function GeneralPhase({ category }) {
     city: "",
     country: "",
     pincode: "",
+    languagesKnown: "",
     applicationDate: "",
   });
 
@@ -91,6 +92,16 @@ export default function GeneralPhase({ category }) {
           inputValue={formData.pincode}
           onChange={handleChange}
         />
+        
+        {category == "create-a-resume" ? (
+          <TextElement
+            labelName={"Languages Known *"}
+            inputName={"languagesKnown"}
+            inputId={"languagesKnown"}
+            inputValue={formData.languagesKnown}
+            onChange={handleChange}
+          />
+        ) : null}
 
         {category == "create-a-cover-letter" ? (
           <DateElement
