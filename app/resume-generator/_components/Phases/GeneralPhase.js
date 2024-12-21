@@ -5,7 +5,7 @@ import { LuImageUp } from "react-icons/lu";
 import TitleComponent from "../TitleComponent";
 import { DateElement, TextElement } from "../FormElements";
 
-export default function GeneralPhase({ category }) {
+export default function GeneralPhase({ category, onNext, onBack }) {
   const [formData, setFormData] = useState({
     photoUrl: "",
     fullName: "",
@@ -92,7 +92,7 @@ export default function GeneralPhase({ category }) {
           inputValue={formData.pincode}
           onChange={handleChange}
         />
-        
+
         {category == "create-a-resume" ? (
           <TextElement
             labelName={"Languages Known *"}
@@ -112,16 +112,6 @@ export default function GeneralPhase({ category }) {
             onChange={handleChange}
           />
         ) : null}
-      </div>
-
-      <div className="py-4 flex items-center justify-end gap-6">
-        <button className="underline text-sm font-normal">Back</button>
-        <button className="px-5 py-1 text-primary text-base font-medium border border-primary rounded-lg">
-          Preview
-        </button>
-        <button className="px-5 py-1 bg-primary text-base font-medium text-white rounded-lg">
-          Next
-        </button>
       </div>
     </div>
   );

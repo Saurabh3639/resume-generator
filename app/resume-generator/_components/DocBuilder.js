@@ -12,6 +12,7 @@ import CocurricularPhase from "./Phases/CocurricularPhase";
 import SocialLinksPhase from "./Phases/SocialLinksPhase";
 import SummaryPhase from "./Phases/SummaryPhase";
 import CertificationsPhase from "./Phases/CertificationsPhase";
+import PhaseNavigation from "./PhaseNavigation";
 
 const CategoriesData = [
   {
@@ -40,6 +41,9 @@ const CategoriesData = [
 export default function DocBuilder({ title, category }) {
   const [selectedPhase, setSelectedPhase] = useState("General");
   const [selectedPhaseIndex, setSelectedPhaseIndex] = useState(0);
+
+  console.log("selectedPhase", selectedPhase);
+  console.log("selectedPhaseIndex", selectedPhaseIndex);
 
   const renderPhaseComponent = (category) => {
     switch (selectedPhase) {
@@ -125,6 +129,34 @@ export default function DocBuilder({ title, category }) {
       </div>
 
       <div>{renderPhaseComponent(category)}</div>
+
+      <PhaseNavigation
+        onNext={() => {
+          setSelectedPhase(CategoriesData[0].phases[selectedPhaseIndex + 1]);
+          setSelectedPhaseIndex(selectedPhaseIndex + 1);
+          console.log(
+            "selectedPhaseIndex == CategoriesData[0].phases?.length",
+            selectedPhaseIndex,
+            CategoriesData[0].phases?.length
+          );
+        }}
+        onBack={() => {
+          setSelectedPhase(CategoriesData[0].phases[selectedPhaseIndex - 1]);
+          setSelectedPhaseIndex(selectedPhaseIndex - 1);
+          console.log(
+            "selectedPhaseIndex == CategoriesData[0].phases?.length",
+            selectedPhaseIndex,
+            CategoriesData[0].phases?.length
+          );
+        }}
+        nextDisabled={
+          selectedPhaseIndex == CategoriesData[0].phases?.length - 1 && true
+        }
+        backDisabled={selectedPhaseIndex == 0 && true}
+        showSaveButton={
+          selectedPhaseIndex == CategoriesData[0].phases?.length - 1 && true
+        }
+      />
     </div>
   );
 }
