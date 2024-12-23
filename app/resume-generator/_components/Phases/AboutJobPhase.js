@@ -4,15 +4,17 @@ import React, { useState } from "react";
 import TitleComponent from "../TitleComponent";
 import { TextElement } from "../FormElements";
 
+const initialFormData = {
+  jobTitle: "",
+  currentExp: "",
+  companyName: "",
+  companyLocation: "",
+  jobDescription: "",
+  coverLetterSample: "",
+};
+
 export default function AboutJobPhase() {
-  const [formData, setFormData] = useState({
-    jobTitle: "",
-    currentExp: "",
-    companyName: "",
-    companyLocation: "",
-    jobDescription: "",
-    coverLetterSample: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +25,7 @@ export default function AboutJobPhase() {
   };
 
   console.log("formData", formData);
+  
   return (
     <div>
       <TitleComponent
@@ -81,7 +84,7 @@ export default function AboutJobPhase() {
         </div>
 
         <hr className="my-4 border border-[#C7C7C7] col-span-2" />
-        
+
         <div className="col-span-2">
           <label className="block text-[#252525] text-base font-medium mb-1 col-span-2">
             Cover Letter Sample
