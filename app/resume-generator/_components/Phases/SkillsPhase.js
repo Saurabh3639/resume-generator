@@ -5,11 +5,13 @@ import TitleComponent from "../TitleComponent";
 import SkillList from "../SkillList";
 import { LuSearch } from "react-icons/lu";
 
+const initialFormData = {
+  jobTitle: "Full Stack Developer",
+  skills: ["Python", "Ruby"],
+};
+
 export default function SkillsPhase() {
-  const [skillsData, setSkillsData] = useState({
-    jobTitle: "Full Stack Developer",
-    skills: ["Python", "Ruby"],
-  });
+  const [skillsData, setSkillsData] = useState(initialFormData);
 
   const [relatedSkills, setRelatedSkills] = useState([
     "HTML",

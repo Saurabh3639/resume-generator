@@ -5,19 +5,21 @@ import TitleComponent from "../TitleComponent";
 import { CiSquarePlus } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 
+const initialFormData = [
+  {
+    id: 1,
+    projectTitle: "",
+    codeUrl: "",
+    hostedUrl: "",
+    projectStartDate: "",
+    projectEndDate: "",
+    projectDescription: "",
+    isInProgress: false,
+  },
+];
+
 export default function ProjectsPhase() {
-  const [projectsData, setProjectsData] = useState([
-    {
-      id: 1,
-      projectTitle: "",
-      codeUrl: "",
-      hostedUrl: "",
-      projectStartDate: "",
-      projectEndDate: "",
-      projectDescription: "",
-      isInProgress: false,
-    },
-  ]);
+  const [projectsData, setProjectsData] = useState(initialFormData);
 
   const handleChange = (index, e) => {
     const { name, value, type, checked } = e.target;

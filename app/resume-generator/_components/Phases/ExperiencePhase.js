@@ -5,20 +5,22 @@ import TitleComponent from "../TitleComponent";
 import { CiSquarePlus } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 
+const initialFormData = [
+  {
+    id: 1,
+    companyName: "",
+    companyLocation: "",
+    jobTitle: "",
+    jobExperience: "",
+    jobStartDate: "",
+    jobEndDate: "",
+    jobDetails: "",
+    isCurrentlyWorking: false,
+  },
+];
+
 export default function ExperiencePhase() {
-  const [experiencesData, setExperiencesData] = useState([
-    {
-      id: 1,
-      companyName: "",
-      companyLocation: "",
-      jobTitle: "",
-      jobExperience: "",
-      jobStartDate: "",
-      jobEndDate: "",
-      jobDetails: "",
-      isCurrentlyWorking: false,
-    },
-  ]);
+  const [experiencesData, setExperiencesData] = useState(initialFormData);
 
   const handleChange = (index, e) => {
     const { name, value, type, checked } = e.target;

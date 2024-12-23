@@ -5,17 +5,19 @@ import TitleComponent from "../TitleComponent";
 import { CiSquarePlus } from "react-icons/ci";
 import { IoClose } from "react-icons/io5";
 
+const initialFormData = [
+  {
+    id: 1,
+    instituteName: "",
+    instituteLocation: "",
+    instituteCourse: "",
+    instituteDuration: "",
+    isPursuing: false,
+  },
+];
+
 export default function EducationPhase() {
-  const [educationsData, setEducationsData] = useState([
-    {
-      id: 1,
-      instituteName: "",
-      instituteLocation: "",
-      instituteCourse: "",
-      instituteDuration: "",
-      isPursuing: false,
-    },
-  ]);
+  const [educationsData, setEducationsData] = useState(initialFormData);
 
   const handleChange = (index, e) => {
     const { name, value, type, checked } = e.target;

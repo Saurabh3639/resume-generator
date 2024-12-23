@@ -4,19 +4,9 @@ import React, { useState } from "react";
 import TitleComponent from "../TitleComponent";
 
 export default function CocurricularPhase() {
-  const [cocurricularData, setCocurricularData] = useState({
-    activities: "",
-  });
+  const [activities, setActivities] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setCocurricularData({
-      ...cocurricularData,
-      [name]: value,
-    });
-  };
-
-  console.log("cocurricularData :", cocurricularData);
+  console.log("activities", activities);
 
   return (
     <div>
@@ -38,8 +28,8 @@ export default function CocurricularPhase() {
             id={"activities"}
             cols="30"
             rows="6"
-            value={cocurricularData.activities}
-            onChange={handleChange}
+            value={activities}
+            onChange={(e) => setActivities(e.target.value)}
           ></textarea>
           <button className="absolute bottom-3 right-3 rounded-lg border border-primary text-xs font-medium text-primary py-1 px-3">
             Ask Felix

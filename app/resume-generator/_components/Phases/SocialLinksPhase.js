@@ -4,15 +4,17 @@ import React, { useState } from "react";
 import TitleComponent from "../TitleComponent";
 import { TextElement } from "../FormElements";
 
+const initialFormData = {
+  linkedInUrl: "",
+  behanceUrl: "",
+  dribbbleUrl: "",
+  githubUrl: "",
+  personalWebsiteUrl: "",
+  projectLinkUrl: "",
+};
+
 export default function SocialLinksPhase() {
-  const [formData, setFormData] = useState({
-    linkedInUrl: "",
-    behanceUrl: "",
-    dribbbleUrl: "",
-    githubUrl: "",
-    personalWebsiteUrl: "",
-    projectLinkUrl: "",
-  });
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

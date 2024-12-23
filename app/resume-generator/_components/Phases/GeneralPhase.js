@@ -5,18 +5,20 @@ import { LuImageUp } from "react-icons/lu";
 import TitleComponent from "../TitleComponent";
 import { DateElement, TextElement } from "../FormElements";
 
-export default function GeneralPhase({ category, onNext, onBack }) {
-  const [formData, setFormData] = useState({
-    photoUrl: "",
-    fullName: "",
-    contact: "",
-    email: "",
-    city: "",
-    country: "",
-    pincode: "",
-    languagesKnown: "",
-    applicationDate: "",
-  });
+const initialFormData = {
+  photoUrl: "",
+  fullName: "",
+  contact: "",
+  email: "",
+  city: "",
+  country: "",
+  pincode: "",
+  languagesKnown: "",
+  applicationDate: "",
+};
+
+export default function GeneralPhase({ category }) {
+  const [formData, setFormData] = useState(initialFormData);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
