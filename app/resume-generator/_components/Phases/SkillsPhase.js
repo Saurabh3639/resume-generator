@@ -1,32 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TitleComponent from "../TitleComponent";
 import SkillList from "../SkillList";
 import { LuSearch } from "react-icons/lu";
+import { askFelixBot } from "@/utility/askFelixBot";
 
 const initialFormData = {
-  jobTitle: "Full Stack Developer",
-  skills: ["Python", "Ruby"],
+  jobTitle: "",
+  skills: [],
 };
 
 export default function SkillsPhase() {
   const [skillsData, setSkillsData] = useState(initialFormData);
-
-  const [relatedSkills, setRelatedSkills] = useState([
-    "HTML",
-    "CSS",
-    "JavaScript",
-    "React JS",
-    "Next JS",
-    "Node JS",
-    "REST APIs",
-    "Angular",
-    "Redux",
-    "Bootstrap",
-    "Tailwind CSS",
-    "Git",
-  ]);
+  const [relatedSkills, setRelatedSkills] = useState([]);
 
   console.log("skillsData", skillsData);
 
@@ -52,6 +39,33 @@ export default function SkillsPhase() {
     setRelatedSkills((prevSkills) => [...prevSkills, skill]);
   };
 
+  const onGenerate = async () => {
+    const inputPrompt = `Based on the job title "${
+      skillsData.jobTitle || "Not provided"
+    }", generate an array of relevant technical and soft skills that are essential for this role. Include a diverse set of skills such as programming languages, frameworks, tools, and interpersonal skills that would help the individual excel in this role.
+      The output should be in the following JSON format:
+      [ "Skill 1", "Skill 2", "Skill 3", ...]
+      Ensure the array of skills aligns with industry standards and best practices for the given job title.`;
+
+    const response = await askFelixBot(inputPrompt);
+
+    if (response) {
+      setRelatedSkills(
+        JSON.parse(response.replace("```json", "").replace("```", ""))
+      );
+    } else {
+      console.error("Failed to generate data");
+    }
+  };
+
+  useEffect(() => {
+    if (skillsData?.jobTitle?.length > 0) {
+      onGenerate();
+    } else {
+      setRelatedSkills([]);
+    }
+  }, [skillsData?.jobTitle]);
+
   return (
     <div>
       <TitleComponent
@@ -70,6 +84,7 @@ export default function SkillsPhase() {
             type="text"
             name={"jobTitle"}
             id={`jobTitle`}
+            placeholder="e.g. Software Developer"
             className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
             value={skillsData.jobTitle}
             onChange={(e) =>

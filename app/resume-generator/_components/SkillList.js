@@ -8,7 +8,7 @@ export default function SkillList({
   actionType = "add", // 'add' or 'remove'
 }) {
   return (
-    <div className="w-full min-h-[340px] p-2 border border-[#808080] rounded text-sm font-normal my-3 flex flex-wrap content-start gap-3">
+    <div className="w-full h-[340px] p-2 border border-[#808080] rounded text-sm font-normal my-3 flex flex-wrap content-start gap-3 overflow-y-scroll">
       {skills.map((cval) => (
         <div
           key={cval}
