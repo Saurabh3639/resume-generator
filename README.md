@@ -14,6 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```bash
 npm install react-icons
 npm install jspdf
+npm install @google/generative-ai
 ```
 
 ## SQL tables
@@ -35,7 +36,6 @@ CREATE TABLE `resume_info` (
   dribbbleUrl varchar(100) DEFAULT NULL,
   githubUrl varchar(100) DEFAULT NULL,
   personalWebsiteUrl varchar(100) DEFAULT NULL,
-  projectLinkUrl varchar(100) DEFAULT NULL,
   educations JSON DEFAULT NULL,
   experiences JSON DEFAULT NULL,
   projects JSON DEFAULT NULL,
