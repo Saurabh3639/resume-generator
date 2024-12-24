@@ -51,18 +51,6 @@ export default function ClassicResumeTemplate({ resumeData }) {
               </a>
             </li>
           )}
-          {resumeData.projectLinkUrl && (
-            <li>
-              Project Link:{" "}
-              <a
-                href={resumeData.projectLinkUrl}
-                className="text-blue-500"
-                target="_blank"
-              >
-                {resumeData.projectLinkUrl}
-              </a>
-            </li>
-          )}
         </ul>
       </div>
 

@@ -10,7 +10,6 @@ const initialFormData = {
   dribbbleUrl: "",
   githubUrl: "",
   personalWebsiteUrl: "",
-  projectLinkUrl: "",
 };
 
 export default function SocialLinksPhase() {
@@ -67,13 +66,6 @@ export default function SocialLinksPhase() {
           inputName={"personalWebsiteUrl"}
           inputId={"personalWebsiteUrl"}
           inputValue={formData.personalWebsiteUrl}
-          onChange={handleChange}
-        />
-        <TextElement
-          labelName={"Project Link"}
-          inputName={"projectLinkUrl"}
-          inputId={"projectLinkUrl"}
-          inputValue={formData.projectLinkUrl}
           onChange={handleChange}
         />
       </div>

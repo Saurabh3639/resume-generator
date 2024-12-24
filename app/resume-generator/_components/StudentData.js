@@ -15,7 +15,6 @@ export const resumeData = {
   dribbbleUrl: "",
   githubUrl: "https://github.com/Saurabh3639",
   personalWebsiteUrl: "",
-  projectLinkUrl: "https://ai-interview-mocker-app.vercel.app/",
   // Education Phase data
   educations: [
     {

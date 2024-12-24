@@ -78,6 +78,7 @@ export default function DocBuilder({ title, category }) {
   const matchedCategory = CategoriesData.find(
     (data) => data.category == category
   );
+  // console.log("matchedCategory", matchedCategory);
 
   if (!matchedCategory) {
     return (
@@ -132,29 +133,19 @@ export default function DocBuilder({ title, category }) {
 
       <PhaseNavigation
         onNext={() => {
-          setSelectedPhase(CategoriesData[0].phases[selectedPhaseIndex + 1]);
+          setSelectedPhase(matchedCategory.phases[selectedPhaseIndex + 1]);
           setSelectedPhaseIndex(selectedPhaseIndex + 1);
-          console.log(
-            "selectedPhaseIndex == CategoriesData[0].phases?.length",
-            selectedPhaseIndex,
-            CategoriesData[0].phases?.length
-          );
         }}
         onBack={() => {
-          setSelectedPhase(CategoriesData[0].phases[selectedPhaseIndex - 1]);
+          setSelectedPhase(matchedCategory.phases[selectedPhaseIndex - 1]);
           setSelectedPhaseIndex(selectedPhaseIndex - 1);
-          console.log(
-            "selectedPhaseIndex == CategoriesData[0].phases?.length",
-            selectedPhaseIndex,
-            CategoriesData[0].phases?.length
-          );
         }}
         nextDisabled={
-          selectedPhaseIndex == CategoriesData[0].phases?.length - 1 && true
+          selectedPhaseIndex == matchedCategory.phases?.length - 1 && true
         }
         backDisabled={selectedPhaseIndex == 0 && true}
         showSaveButton={
-          selectedPhaseIndex == CategoriesData[0].phases?.length - 1 && true
+          selectedPhaseIndex == matchedCategory.phases?.length - 1 && true
         }
       />
     </div>
