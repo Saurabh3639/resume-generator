@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import TitleComponent from "../TitleComponent";
 import TemplatePreviewModal from "../TemplatePreviewModal";
-import { resumeTemplates } from "../Template/TemplatesData";
+import { cvTemplates, resumeTemplates } from "../Template/TemplatesData";
 
 export default function ChooseTemplatePhase({ category }) {
   const [selectedTemplate, setSelectedTemplate] = useState(null);
@@ -16,6 +16,14 @@ export default function ChooseTemplatePhase({ category }) {
   const closeModal = () => {
     setSelectedTemplate(null);
   };
+
+  // Determine the templates to display based on category
+  const templates =
+    category === "create-a-resume"
+      ? resumeTemplates
+      : category == "create-a-cover-letter"
+      ? cvTemplates
+      : [];
 
   return (
     <div>
@@ -35,14 +43,20 @@ export default function ChooseTemplatePhase({ category }) {
 
       <div>
         <div className="grid grid-cols-4 gap-2 justify-items-center">
-          {resumeTemplates.map((template, index) => {
+          {templates.map((template, index) => {
             return (
               <div
                 key={index}
                 className="border border-[#FFA6AA] rounded-lg p-2 w-fit"
               >
                 <Image
-                  src="/images/template_image.svg"
+                  src={
+                    category == "create-a-resume"
+                      ? "/images/resume_template_image.svg"
+                      : category == "create-a-cover-letter"
+                      ? "/images/cv_template_image.svg"
+                      : null
+                  }
                   className=""
                   width="200"
                   height="160"
@@ -75,6 +89,7 @@ export default function ChooseTemplatePhase({ category }) {
 
       {selectedTemplate && (
         <TemplatePreviewModal
+          category={category}
           template={selectedTemplate}
           closeModal={closeModal}
         />

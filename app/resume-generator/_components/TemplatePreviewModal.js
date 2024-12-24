@@ -1,15 +1,25 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { resumeData } from "./StudentData";
+import { cvData, resumeData } from "./StudentData";
 import jsPDF from "jspdf";
 
-export default function TemplatePreviewModal({ template, closeModal }) {
-  const downloadResume = () => {
+export default function TemplatePreviewModal({
+  category,
+  template,
+  closeModal,
+}) {
+  const downloadPdf = () => {
     const doc = new jsPDF("portrait", "pt", "a4");
     const pdfContent = document.getElementById("resume-preview");
     doc.html(pdfContent, {
       callback: (doc) => {
-        doc.save(`${resumeData.fullName}-resume.pdf`);
+        // Conditionally set the filename based on the category
+        const fileName =
+          category == "create-a-resume"
+            ? `${resumeData.fullName}-resume.pdf`
+            : `${cvData.fullName}-cv.pdf`;
+
+        doc.save(fileName);
       },
     });
   };
@@ -27,15 +37,19 @@ export default function TemplatePreviewModal({ template, closeModal }) {
 
         {/* Render the resume preview */}
         <div id="resume-preview">
-          <template.component resumeData={resumeData} />
+          {category == "create-a-resume" ? (
+            <template.component resumeData={resumeData} />
+          ) : category == "create-a-cover-letter" ? (
+            <template.component cvData={cvData} />
+          ) : null}
         </div>
 
         <div className="flex justify-end mt-4">
           <button
             className="bg-primary text-white px-4 py-2 rounded"
-            onClick={downloadResume}
+            onClick={downloadPdf}
           >
-            Download Resume
+            Download
           </button>
         </div>
       </div>
