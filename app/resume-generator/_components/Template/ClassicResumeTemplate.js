@@ -182,7 +182,11 @@ export default function ClassicResumeTemplate({ resumeData }) {
         <h2 className="text-lg font-semibold text-gray-800">
           Co-Curricular Activities
         </h2>
-        <p className="text-gray-600 text-sm">{resumeData.activities}</p>
+        <ul className="list-disc pl-5 text-gray-600 text-sm">
+          {resumeData.activities.map((activity, index) => (
+            <li key={index}>{activity}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

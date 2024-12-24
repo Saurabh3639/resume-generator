@@ -162,7 +162,11 @@ export default function CreativeResumeTemplate({ resumeData }) {
         <h2 className="text-xl font-semibold text-[#73937E] mb-2">
           Co-Curricular Activities
         </h2>
-        <p className="text-sm text-gray-700">{resumeData.activities}</p>
+        <ul className="list-disc pl-5 text-sm text-gray-700">
+          {resumeData.activities.map((activity, index) => (
+            <li key={index}>{activity}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

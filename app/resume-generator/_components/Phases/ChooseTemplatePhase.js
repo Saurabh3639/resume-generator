@@ -4,17 +4,9 @@ import React, { useState } from "react";
 import Image from "next/image";
 import TitleComponent from "../TitleComponent";
 import TemplatePreviewModal from "../TemplatePreviewModal";
-import ClassicResumeTemplate from "../Template/ClassicResumeTemplate";
-import CreativeResumeTemplate from "../Template/CreativeResumeTemplate";
-import TimelineResumeTemplate from "../Template/TimelineResumeTemplate";
+import { resumeTemplates } from "../templatesData";
 
 export default function ChooseTemplatePhase({ category }) {
-  const templates = [
-    { id: 1, name: "Classic Resume", component: ClassicResumeTemplate },
-    { id: 2, name: "Creative Resume", component: CreativeResumeTemplate },
-    { id: 3, name: "Timeline Resume", component: TimelineResumeTemplate },
-  ];
-
   const [selectedTemplate, setSelectedTemplate] = useState(null);
 
   const handleTemplateClick = (template) => {
@@ -43,7 +35,7 @@ export default function ChooseTemplatePhase({ category }) {
 
       <div>
         <div className="grid grid-cols-4 gap-2 justify-items-center">
-          {templates.map((template, index) => {
+          {resumeTemplates.map((template, index) => {
             return (
               <div
                 key={index}
@@ -80,7 +72,7 @@ export default function ChooseTemplatePhase({ category }) {
       </div>
 
       <hr className="my-6 border border-[#C7C7C7]" />
-      
+
       {selectedTemplate && (
         <TemplatePreviewModal
           template={selectedTemplate}

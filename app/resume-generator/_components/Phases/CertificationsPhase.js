@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import TitleComponent from "../TitleComponent";
-import { FaMinus } from "react-icons/fa6";
 import { AiOutlineClose } from "react-icons/ai";
 
 export default function CertificationsPhase() {
@@ -41,7 +40,7 @@ export default function CertificationsPhase() {
         <div className="flex items-center gap-3 w-[50%]">
           <input
             type="text"
-            name={"certification"}
+            name={"certifications"}
             id={"certifications"}
             className="w-full px-2 py-1 border border-[#808080] rounded focus:outline-none text-sm font-normal"
             value={newCertification}

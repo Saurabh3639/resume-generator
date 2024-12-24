@@ -159,7 +159,11 @@ export default function TimelineResumeTemplate({ resumeData }) {
         <h2 className="text-2xl font-semibold text-gray-800 border-b-2 border-[#6F73D2] mb-4 pb-2">
           Co-Curricular Activities
         </h2>
-        <p className="text-gray-700 text-sm">{resumeData.activities}</p>
+        <ul className="list-disc pl-5 text-sm text-gray-700">
+          {resumeData.activities.map((activity, index) => (
+            <li key={index}>{activity}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
