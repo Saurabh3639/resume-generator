@@ -13,49 +13,59 @@ export default function SummaryPhase() {
   const onGenerate = async () => {
     setLoading(true);
 
-    const inputPrompt = `
-Based on the following resume data, write a concise and professional profile summary for a resume that highlights the individual's strengths, skills, achievements, and career aspirations. The summary should be impactful, limited to 2-3 sentences, and suitable for inclusion in a professional resume.
-
-Resume Data:
-- Full Name: ${resumeData.fullName || "Not provided"}
-- Contact: ${resumeData.contact || "Not provided"}
-- Email: ${resumeData.email || "Not provided"}
-- Location: ${resumeData.city || "Not provided"}, ${resumeData.country || "Not provided"}
-- Pincode: ${resumeData.pincode || "Not provided"}
-- Languages Known: ${resumeData.languagesKnown || "Not provided"}
-- Social Links:
-  - LinkedIn: ${resumeData.linkedInUrl || "Not provided"}
-  - GitHub: ${resumeData.githubUrl || "Not provided"}
-  - Personal Website: ${resumeData.personalWebsiteUrl || "Not provided"}
-- Education: ${resumeData.educations
-  .map(
-    (edu) =>
-      `\n  - ${edu.instituteName}, ${edu.instituteLocation}, ${edu.instituteCourse} (${edu.instituteDuration}${edu.isPursuing ? ", Currently Pursuing" : ""})`
-  )
-  .join("")}
-- Experience: ${resumeData.experiences
-  .map(
-    (exp) =>
-      `\n  - ${exp.jobTitle} at ${exp.companyName}, ${exp.companyLocation} (${exp.jobStartDate} to ${
-        exp.isCurrentlyWorking ? "Present" : exp.jobEndDate || "Not provided"
-      }) - ${exp.jobDetails}`
-  )
-  .join("")}
-- Projects: ${resumeData.projects
-  .map(
-    (proj) =>
-      `\n  - ${proj.projectTitle} (${proj.projectStartDate} to ${
-        proj.isInProgress ? "In Progress" : proj.projectEndDate || "Not provided"
-      }): ${proj.projectDescription}`
-  )
-  .join("")}
-- Skills: ${resumeData.skills.join(", ") || "Not provided"}
-- Certifications: ${resumeData.certifications.join(", ") || "Not provided"}
-- Activities: ${resumeData.activities.join("\n  - ") || "Not provided"}
-- Summary: ${resumeData.summary || "Not provided"}
-
-Ensure the generated profile summary effectively summarizes the individual's profile and aligns with professional resume standards.`;
-
+    const inputPrompt = `Based on the following resume data, write a concise and professional profile summary for a resume that highlights the individual's strengths, skills, achievements, and career aspirations. The summary should be impactful, limited to 2-3 sentences, and suitable for inclusion in a professional resume.
+    Resume Data:
+    - Full Name: ${resumeData.fullName || "Not provided"}
+    - Contact: ${resumeData.contact || "Not provided"}
+    - Email: ${resumeData.email || "Not provided"}
+    - Location: ${resumeData.city || "Not provided"}, ${
+      resumeData.country || "Not provided"
+    }
+    - Pincode: ${resumeData.pincode || "Not provided"}
+    - Languages Known: ${resumeData.languagesKnown || "Not provided"}
+    - Social Links:
+      - LinkedIn: ${resumeData.linkedInUrl || "Not provided"}
+      - Behance: ${resumeData.behanceUrl || "Not provided"}
+      - Dribbble: ${resumeData.dribbbleUrl || "Not provided"}
+      - GitHub: ${resumeData.githubUrl || "Not provided"}
+      - Personal Website: ${resumeData.personalWebsiteUrl || "Not provided"}
+    - Education: ${resumeData.educations
+      .map(
+        (edu) =>
+          `\n  - ${edu.instituteName}, ${edu.instituteLocation}, ${
+            edu.instituteCourse
+          } (${edu.instituteDuration}${
+            edu.isPursuing ? ", Currently Pursuing" : ""
+          })`
+      )
+      .join("")}
+    - Experience: ${resumeData.experiences
+      .map(
+        (exp) =>
+          `\n  - ${exp.jobTitle} at ${exp.companyName}, ${
+            exp.companyLocation
+          } (${exp.jobStartDate} to ${
+            exp.isCurrentlyWorking
+              ? "Present"
+              : exp.jobEndDate || "Not provided"
+          }) - ${exp.jobDetails}`
+      )
+      .join("")}
+    - Projects: ${resumeData.projects
+      .map(
+        (proj) =>
+          `\n  - ${proj.projectTitle} (${proj.projectStartDate} to ${
+            proj.isInProgress
+              ? "In Progress"
+              : proj.projectEndDate || "Not provided"
+          }): ${proj.projectDescription}`
+      )
+      .join("")}
+    - Skills: ${resumeData.skills.join(", ") || "Not provided"}
+    - Certifications: ${resumeData.certifications.join(", ") || "Not provided"}
+    - Activities: ${resumeData.activities.join("\n  - ") || "Not provided"}
+    - Summary: ${resumeData.summary || "Not provided"}
+    Ensure the generated profile summary effectively summarizes the individual's profile and aligns with professional resume standards.`;
 
     const response = await askFelixBot(inputPrompt);
 
