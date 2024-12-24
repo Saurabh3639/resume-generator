@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import TitleComponent from "../TitleComponent";
 import TemplatePreviewModal from "../TemplatePreviewModal";
-import { resumeTemplates } from "../templatesData";
+import { resumeTemplates } from "../Template/TemplatesData";
 
 export default function ChooseTemplatePhase({ category }) {
   const [selectedTemplate, setSelectedTemplate] = useState(null);
