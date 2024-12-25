@@ -2,6 +2,17 @@
 
 import React, { useState } from "react";
 import GeneralPhase from "./Phases/GeneralPhase";
+import AboutJobPhase from "./Phases/AboutJobPhase";
+import ChooseTemplatePhase from "./Phases/ChooseTemplatePhase";
+import EducationPhase from "./Phases/EducationPhase";
+import ExperiencePhase from "./Phases/ExperiencePhase";
+import SkillsPhase from "./Phases/SkillsPhase";
+import ProjectsPhase from "./Phases/ProjectsPhase";
+import CocurricularPhase from "./Phases/CocurricularPhase";
+import SocialLinksPhase from "./Phases/SocialLinksPhase";
+import SummaryPhase from "./Phases/SummaryPhase";
+import CertificationsPhase from "./Phases/CertificationsPhase";
+import PhaseNavigation from "./PhaseNavigation";
 
 const CategoriesData = [
   {
@@ -14,7 +25,9 @@ const CategoriesData = [
       "Experience",
       "Projects",
       "Skills",
+      "Certifications",
       "Co-Curricular",
+      "Summary",
       "Choose Template",
     ],
   },
@@ -29,26 +42,33 @@ export default function DocBuilder({ title, category }) {
   const [selectedPhase, setSelectedPhase] = useState("General");
   const [selectedPhaseIndex, setSelectedPhaseIndex] = useState(0);
 
+  console.log("selectedPhase", selectedPhase);
+  console.log("selectedPhaseIndex", selectedPhaseIndex);
+
   const renderPhaseComponent = (category) => {
     switch (selectedPhase) {
       case "General":
         return <GeneralPhase category={category} />;
       case "Social Links":
-        return <p>Add your social media profiles and links here.</p>;
+        return <SocialLinksPhase />;
       case "Education":
-        return <p>Provide your education background here.</p>;
+        return <EducationPhase />;
       case "Experience":
-        return <p>List your professional experience here.</p>;
+        return <ExperiencePhase />;
       case "Projects":
-        return <p>Describe your key projects here.</p>;
+        return <ProjectsPhase />;
       case "Skills":
-        return <p>Add your skills here.</p>;
+        return <SkillsPhase />;
+      case "Certifications":
+        return <CertificationsPhase />;
       case "Co-Curricular":
-        return <p>Mention your co-curricular activities here.</p>;
+        return <CocurricularPhase />;
+      case "Summary":
+        return <SummaryPhase />;
       case "About Job":
-        return <p>Company Details.</p>;
+        return <AboutJobPhase />;
       case "Choose Template":
-        return <p>Select a template for your resume.</p>;
+        return <ChooseTemplatePhase category={category} />;
       default:
         return <p>Select a phase to start.</p>;
     }
@@ -58,6 +78,7 @@ export default function DocBuilder({ title, category }) {
   const matchedCategory = CategoriesData.find(
     (data) => data.category == category
   );
+  // console.log("matchedCategory", matchedCategory);
 
   if (!matchedCategory) {
     return (
@@ -109,6 +130,24 @@ export default function DocBuilder({ title, category }) {
       </div>
 
       <div>{renderPhaseComponent(category)}</div>
+
+      <PhaseNavigation
+        onNext={() => {
+          setSelectedPhase(matchedCategory.phases[selectedPhaseIndex + 1]);
+          setSelectedPhaseIndex(selectedPhaseIndex + 1);
+        }}
+        onBack={() => {
+          setSelectedPhase(matchedCategory.phases[selectedPhaseIndex - 1]);
+          setSelectedPhaseIndex(selectedPhaseIndex - 1);
+        }}
+        nextDisabled={
+          selectedPhaseIndex == matchedCategory.phases?.length - 1 && true
+        }
+        backDisabled={selectedPhaseIndex == 0 && true}
+        showSaveButton={
+          selectedPhaseIndex == matchedCategory.phases?.length - 1 && true
+        }
+      />
     </div>
   );
 }
