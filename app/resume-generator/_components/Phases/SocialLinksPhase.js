@@ -24,7 +24,7 @@ export default function SocialLinksPhase() {
   };
 
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Social Links"}
         subheading={

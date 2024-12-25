@@ -25,7 +25,7 @@ export default function CocurricularPhase() {
   };
 
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Co-Curricular"}
         subheading={
@@ -56,7 +56,7 @@ export default function CocurricularPhase() {
           </div>
         </div>
 
-        <div className="w-[75%] min-h-[240px] p-2 border border-[#808080] rounded text-sm font-normal my-3 flex flex-wrap content-start gap-3">
+        <div className="min-h-[240px] p-2 border border-[#808080] rounded text-sm font-normal my-3 flex flex-wrap content-start gap-3">
           {activities.map((cval, index) => (
             <div
               key={index}

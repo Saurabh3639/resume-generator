@@ -25,7 +25,7 @@ export default function CertificationsPhase() {
   };
 
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Certifications"}
         subheading={
@@ -54,7 +54,7 @@ export default function CertificationsPhase() {
           </button>
         </div>
 
-        <div className="w-[75%] min-h-[240px] p-2 border border-[#808080] rounded text-sm font-normal my-3 flex flex-wrap content-start gap-3">
+        <div className="min-h-[240px] p-2 border border-[#808080] rounded text-sm font-normal my-3 flex flex-wrap content-start gap-3">
           {certifications.map((cval, index) => (
             <div
               key={index}

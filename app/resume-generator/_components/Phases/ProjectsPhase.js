@@ -67,7 +67,7 @@ export default function ProjectsPhase() {
   console.log("projectsData :", JSON.stringify(projectsData));
 
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Projects"}
         subheading={

@@ -69,7 +69,7 @@ export default function ExperiencePhase() {
   console.log("experiencesData :", JSON.stringify(experiencesData));
 
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Experience"}
         subheading={

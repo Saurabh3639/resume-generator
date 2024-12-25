@@ -8,7 +8,7 @@ export default function PhaseNavigation({
   showSaveButton = false,
 }) {
   return (
-    <div className="py-4 flex items-center justify-end gap-6">
+    <div className="py-4 flex items-center justify-end gap-6 w-[80%]">
       {/* Back button */}
       <button
         className={`underline text-sm font-normal ${

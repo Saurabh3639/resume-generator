@@ -31,7 +31,7 @@ export default function GeneralPhase({ category }) {
   console.log("formData", formData);
 
   return (
-    <div>
+    <div className="w-[80%]">
       {category == "create-a-resume" ? (
         <TitleComponent
           heading={"Tell us Something about you."}

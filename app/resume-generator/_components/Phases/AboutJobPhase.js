@@ -27,7 +27,7 @@ export default function AboutJobPhase() {
   console.log("formData", formData);
   
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Company Details"}
         subheading={"* Please provide company information."}

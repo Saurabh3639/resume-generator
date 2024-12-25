@@ -98,7 +98,7 @@ export default function SkillsPhase() {
   }, [searchQuery?.length]);
 
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Skills"}
         subheading={

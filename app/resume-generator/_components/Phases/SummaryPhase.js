@@ -78,7 +78,7 @@ export default function SummaryPhase() {
   };
 
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Summary"}
         subheading={

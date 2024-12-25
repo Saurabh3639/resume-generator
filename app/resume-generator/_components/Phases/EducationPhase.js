@@ -53,7 +53,7 @@ export default function EducationPhase() {
   console.log("educationsData :", JSON.stringify(educationsData));
 
   return (
-    <div>
+    <div className="w-[80%]">
       <TitleComponent
         heading={"Education"}
         subheading={

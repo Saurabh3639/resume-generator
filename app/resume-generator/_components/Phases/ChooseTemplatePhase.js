@@ -26,7 +26,7 @@ export default function ChooseTemplatePhase({ category }) {
       : [];
 
   return (
-    <div>
+    <div className="w-[80%]">
       {category == "create-a-resume" ? (
         <TitleComponent
           heading={"Choose Resume Template"}
