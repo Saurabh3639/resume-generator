@@ -14,8 +14,12 @@ const initialFormData = {
 export default function SkillsPhase() {
   const [skillsData, setSkillsData] = useState(initialFormData);
   const [relatedSkills, setRelatedSkills] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
-  console.log("skillsData", skillsData);
+  // console.log("searchQuery", searchQuery);
+  // console.log("searchResults", searchResults);
+  // console.log("skillsData", skillsData);
 
   // Function to Add skill to my skills and Remove skill from related skills
   const addToSkills = (skill) => {
@@ -58,6 +62,25 @@ export default function SkillsPhase() {
     }
   };
 
+  const onSearchResults = async () => {
+    const inputPrompt = `Based on the job title "${
+      skillsData.jobTitle || "Not provided"
+    }" and Serach query ${searchQuery}, genearte an array of the relevant technical and soft skills that are essential for this role and matching with the search query which are more relevant and closely relevant to the search query.
+    The output should be in the following JSON format: [ "Skill 1", "Skill 2", "Skill 3", ...]
+    Ensure the array of skills aligns with industry standards and best practices for the given job title.
+    `;
+
+    const response = await askFelixBot(inputPrompt);
+
+    if (response) {
+      setSearchResults(
+        JSON.parse(response.replace("```json", "").replace("```", ""))
+      );
+    } else {
+      console.error("Failed to search data");
+    }
+  };
+
   useEffect(() => {
     if (skillsData?.jobTitle?.length > 0) {
       onGenerate();
@@ -65,6 +88,14 @@ export default function SkillsPhase() {
       setRelatedSkills([]);
     }
   }, [skillsData?.jobTitle]);
+
+  useEffect(() => {
+    if (searchQuery?.length > 0) {
+      onSearchResults();
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchQuery?.length]);
 
   return (
     <div>
@@ -112,9 +143,26 @@ export default function SkillsPhase() {
             <input
               type="search"
               placeholder="Search"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full ps-8 pe-2 py-1 border border-[#808080] rounded-md focus:outline-none text-sm font-normal"
             />
             <LuSearch className="absolute top-[0.3rem] left-[0.3rem] text-xl text-[#808080]" />
+            {searchResults?.length > 0 ? (
+              <div className="bg-white absolute w-full rounded-b-lg px-8 py-1 border shadow h-[200px] overflow-y-scroll">
+                {searchResults.map((skill, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="border-b border-[#808080] py-1 cursor-pointer hover:bg-gray-100 text-sm"
+                      onClick={() => addToSkills(skill)}
+                    >
+                      {skill}
+                    </div>
+                  );
+                })}
+              </div>
+            ) : null}
           </div>
           <SkillList
             skills={relatedSkills}

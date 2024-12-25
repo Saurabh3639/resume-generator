@@ -115,7 +115,7 @@ export const resumeData = {
 
 export const cvData = {
   // General Phase data
-  photoUrl: "",
+  photoUrl: "https://felix-crm.s3.ap-south-1.amazonaws.com/attendanceImg/25-12-2024_SaurabhPhawade.jpg",
   fullName: "Saurabh Phawade",
   contact: "7558539958",
   email: "saurabhphawade@gmail.com",
